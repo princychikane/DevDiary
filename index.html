@@ -1,20 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevDiary 📝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevDiary - Daily Developer Log</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>DevDiary 🧠</h1>
-    <form id="entryForm">
-      <input type="text" id="title" placeholder="Entry title..." required />
-      <textarea id="content" placeholder="What did you learn today?" required></textarea>
-      <button type="submit">Add Entry</button>
-    </form>
-    <div id="entries"></div>
+    <h1>DevDiary 📝</h1>
+    <p class="subtitle">Write what you learned today!</p>
+    
+    <textarea id="entryInput" placeholder="What did you learn today?" rows="4"></textarea>
+    <button id="addButton">Add Entry</button>
+    
+    <h2>Previous Entries</h2>
+    <ul id="entryList"></ul>
   </div>
 
   <script src="script.js"></script>

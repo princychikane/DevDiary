@@ -1,32 +1,36 @@
 
-const form = document.querySelector("form");
-const titleInput = document.getElementById("title");
-const contentInput = document.getElementById("content");
-const entriesDiv = document.getElementById("entries");
+const entryInput = document.getElementById("entryInput");
+const addButton = document.getElementById("addButton");
+const entryList = document.getElementById("entryList");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+// Load entries from LocalStorage on page load
+window.onload = function () {
+  const savedEntries = JSON.parse(localStorage.getItem("devDiaryEntries")) || [];
+  savedEntries.forEach(entry => addEntryToDOM(entry));
+};
 
-  const title = titleInput.value.trim();
-  const content = contentInput.value.trim();
-
-  if (title && content) {
-    const entryDiv = document.createElement("div");
-    entryDiv.classList.add("entry");
-
-    const entryTitle = document.createElement("h3");
-    entryTitle.textContent = title;
-
-    const entryContent = document.createElement("p");
-    entryContent.textContent = content;
-
-    entryDiv.appendChild(entryTitle);
-    entryDiv.appendChild(entryContent);
-
-    entriesDiv.prepend(entryDiv); // add to top
-
-    // Clear inputs
-    titleInput.value = "";
-    contentInput.value = "";
+// Add new entry
+addButton.addEventListener("click", () => {
+  const text = entryInput.value.trim();
+  if (text !== "") {
+    const timestamp = new Date().toLocaleString();
+    const entry = { text, timestamp };
+    addEntryToDOM(entry);
+    saveEntry(entry);
+    entryInput.value = "";
   }
 });
+
+// Add entry to HTML
+function addEntryToDOM(entry) {
+  const li = document.createElement("li");
+  li.innerHTML = `<strong>${entry.timestamp}</strong><br>${entry.text}`;
+  entryList.prepend(li);
+}
+
+// Save entry to LocalStorage
+function saveEntry(entry) {
+  const existing = JSON.parse(localStorage.getItem("devDiaryEntries")) || [];
+  existing.push(entry);
+  localStorage.setItem("devDiaryEntries", JSON.stringify(existing));
+}
