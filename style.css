@@ -1,82 +1,67 @@
-* {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f4f8;
-  color: #333;
-  padding: 30px;
-}
-
-.container {
-  max-width: 700px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
+header {
+  background-color: #4b6cb7;
+  background-image: linear-gradient(to right, #182848, #4b6cb7);
+  color: white;
+  padding: 1rem 2rem;
   text-align: center;
-  margin-bottom: 25px;
-  color: #5c67f2;
+  font-size: 1.8rem;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 30px;
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
 }
 
-input[type="text"],
 textarea {
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ddd;
+  width: 100%;
+  height: 150px;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
   resize: none;
+  margin-bottom: 1rem;
 }
 
 button {
-  padding: 12px;
-  font-size: 16px;
-  background-color: #5c67f2;
+  background-color: #4b6cb7;
   color: white;
   border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #434ee6;
+  background-color: #3a4f9b;
 }
 
-#entries {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.entries {
+  margin-top: 2rem;
 }
 
 .entry {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 10px;
-  border-left: 5px solid #5c67f2;
+  background-color: white;
+  border-left: 4px solid #4b6cb7;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 6px;
 }
 
-.entry h3 {
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.entry p {
-  white-space: pre-wrap;
-  line-height: 1.5;
-  font-size: 15px;
+.timestamp {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.5rem;
 }
